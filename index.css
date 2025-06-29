@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0C0C0C;
+  }
+  
+  * {
+    cursor: none !important;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-lg border border-electric-blue/30 rounded-xl shadow-lg shadow-electric-blue/10;
+  }
+  
+  .glitch-text {
+    animation: glitch 2s infinite;
+  }
+  
+  .text-shadow-glow {
+    text-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+  }
+  
+  .neon-glow {
+    animation: neon-pulse 2s ease-in-out infinite alternate;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-electric-blue via-violet-500 to-electric-cyan bg-clip-text text-transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-electric-blue/30;
+  }
+  
+  .glow-effect {
+    @apply relative;
+    box-shadow: 0 0 20px rgba(31, 142, 255, 0.3);
+  }
+  
+  .glow-effect::before {
+    content: '';
+    @apply absolute -inset-1 bg-gradient-to-r from-electric-blue to-electric-cyan rounded-lg blur opacity-40;
+    z-index: -1;
+  }
+  
+  .glow-effect:hover {
+    box-shadow: 0 0 30px rgba(31, 142, 255, 0.5), 0 0 60px rgba(0, 255, 255, 0.3);
+  }
+  
+  .button-glow {
+    @apply relative overflow-hidden;
+    box-shadow: 0 0 20px rgba(255, 122, 0, 0.4);
+    transition: all 0.3s ease;
+  }
+  
+  .button-glow:hover {
+    box-shadow: 0 0 30px rgba(255, 122, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.4);
+    transform: translateY(-2px);
+  }
+  
+  .section-gradient {
+    background: radial-gradient(ellipse at center, rgba(31, 142, 255, 0.08) 0%, rgba(0, 255, 255, 0.04) 50%, transparent 100%);
+  }
+  
+  .cyber-border {
+    border: 1px solid transparent;
+    background: linear-gradient(#0C0C0C, #0C0C0C) padding-box,
+                linear-gradient(45deg, #1F8EFF, #00FFFF, #5F5CFF) border-box;
+  }
+  
+  .tech-glow {
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+  }
+}
+
+@layer utilities {
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .animate-on-scroll.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .perspective {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0C0C0C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1F8EFF, #00FFFF);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #0066CC, #00E6E6);
+}
